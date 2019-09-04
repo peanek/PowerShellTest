@@ -18,15 +18,32 @@ function generateForm {
 
     #end region
     
-    #region generate form objects
+    #region generate form objects code
     $main_form = New-Object System.Windows.Forms.Form
     $credentialsProviderButton = New-Object System.Windows.Forms.Button 
 
+
+
+    #main form
+    $main_form.Text = 'EMS tools v1.0'
+    $main_form.Name = 'EMS tools form'
+    $main_form.DataBindings.DefaultDataSourceUpdateMode = 0
 
     $drawing_size = New-Object System.Drawing.Size
     $drawing_size.Width = 400
     $drawing_size.Height = 300
     $main_form.Size = $drawing_size
+    #end main form
+
+    #credentialsProviderButton
+    $credentialsProviderButton.Text = "Provide credentials"
+    $drawing_size = New-Object Syste.Drawing.Size
+    $drawing_size.Width = 50
+    $drawing_size.Height = 50
+    $credentialsProviderButton.Size = $drawing_size
+    #end credentialsProviderButton
+
+
 
 
     $main_form.ShowDialog()
