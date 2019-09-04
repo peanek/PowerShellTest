@@ -14,18 +14,29 @@ function generateForm {
     #region import System. assembly
     [reflection.assembly]::LoadWithPartialName("System.Windows.Forms") | Out-Null
     [reflection.assembly]::LoadWithPartialName("System.Drawing") | Out-Null
+    # Add-Type -AssemblyName System.Windows.Forms
+
     #end region
     
     #region generate form objects
-    $main_form = New-Object Windows.System.Forms.Form
+    $main_form = New-Object System.Windows.Forms.Form
     $credentialsProviderButton = New-Object System.Windows.Forms.Button 
-    
 
+
+    $drawing_size = New-Object System.Drawing.Size
+    $drawing_size.Width = 400
+    $drawing_size.Height = 300
+    $main_form.Size = $drawing_size
+
+
+    $main_form.ShowDialog()
     #end region
     
     
 
 }
+generateForm
+
 
 
 
