@@ -37,10 +37,11 @@ function generateForm {
 
     #credentialsProviderButton
     $credentialsProviderButton.Text = "Provide credentials"
-    $drawing_size = New-Object Syste.Drawing.Size
+    $drawing_size = New-Object System.Drawing.Size
     $drawing_size.Width = 50
     $drawing_size.Height = 50
     $credentialsProviderButton.Size = $drawing_size
+    $main_form.Controls.Add($credentialsProviderButton)
     #end credentialsProviderButton
 
 
