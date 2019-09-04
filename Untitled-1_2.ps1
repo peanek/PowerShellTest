@@ -32,6 +32,7 @@ $buttonCheckConnection.Add_Click(
     {
         $labelInformation.Text = "Czy  dziala??"
         $labelInformation.Text = ""
+        ##add new comments
     }  
 )
 
