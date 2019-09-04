@@ -31,6 +31,7 @@ $main_form.Controls.Add($buttonCheckConnection)
 $buttonCheckConnection.Add_Click(
     {
         $labelInformation.Text = "Czy  dziala??"
+        $labelInformation.Text = "Tak działa"
     }  
 )
 
