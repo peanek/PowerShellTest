@@ -22,7 +22,9 @@ function generateForm {
     $main_form = New-Object System.Windows.Forms.Form
     $credentialsProviderButton = New-Object System.Windows.Forms.Button 
 
+    $credentialsProviderForm = New-Object System.Windows.Forms.Form
 
+    #end region 'region generate form objects code'
 
     #main form
     $main_form.Text = 'EMS tools v1.0'
@@ -42,7 +44,24 @@ function generateForm {
     $drawing_size.Height = 50
     $credentialsProviderButton.Size = $drawing_size
     $main_form.Controls.Add($credentialsProviderButton)
+    
+    $credentialsProviderButton.Add_Click(
+        {
+            $credentialsProviderForm.Text = 'Credentials Provider'
+            # $drawing_size = New-Obj
+            $drawing_size.Width = 100Pyth
+            $drawing_size.Height = 100
+            $credentialsProviderForm.Size = $drawing_size
+
+            $credentialsProviderForm.ShowDialog()
+
+
+        }
+    )
+    
     #end credentialsProviderButton
+
+
 
 
 
