@@ -7,15 +7,10 @@
 
 #Generate Form Function
 function generateForm {
-
-    #  param (
-        
-    # )
     #region import System. assembly
     [reflection.assembly]::LoadWithPartialName("System.Windows.Forms") | Out-Null
     [reflection.assembly]::LoadWithPartialName("System.Drawing") | Out-Null
-    # Add-Type -AssemblyName System.Windows.Forms
-
+    # [System.windows.Forms.Application]::EnableVisualStyles()
     #end region
     
     #region generate form objects code
@@ -27,6 +22,7 @@ function generateForm {
     #end region 'region generate form objects code'
 
     #main form
+    $main_form.Font = 'Consolas,8'
     $main_form.Text = 'EMS tools v1.0'
     $main_form.Name = 'EMS tools form'
     $main_form.DataBindings.DefaultDataSourceUpdateMode = 0
@@ -42,28 +38,46 @@ function generateForm {
     $drawing_size = New-Object System.Drawing.Size
     $drawing_size.Width = 50
     $drawing_size.Height = 50
+
     $credentialsProviderButton.Size = $drawing_size
+    $credentialsProviderButton.Location = New-Object System.Drawing.Point(150,150)
     $main_form.Controls.Add($credentialsProviderButton)
     
     $credentialsProviderButton.Add_Click(
         {
             $credentialsProviderForm.Text = 'Credentials Provider'
-            # $drawing_size = New-Obj
-            $drawing_size.Width = 100Pyth
+            $drawing_size.Width = 100
             $drawing_size.Height = 100
             $credentialsProviderForm.Size = $drawing_size
-
             $credentialsProviderForm.ShowDialog()
+            $labelCredentialUser = New-Object System.Windows.Forms.Label
+            $labelCredentialPassword = New-Object System.Windows.Forms.Label
+            
 
 
         }
     )
+
+
     
     #end credentialsProviderButton
 
 
 
 
+    #labelInformation 
+    $labelStatusBar = New-Object System.Windows.Forms.Label
+    $labelStatusBar.Size.Height = 20
+    $labelStatusBar.Size.Width = 400
+    $labelStatusBar.AutoSize = $true
+    $labelStatusBar.Multiline = $false
+
+    $labelStatusBar.Location = New-Object System.Drawing.Point(5,235)
+    # $labelStatusBar.Font = 'Consolas,8'
+    $main_form.Controls.Add($labelStatusBar)
+    $labelStatusBar.Text = 'Status: OK !'
+
+    #end labelInformation
 
 
     $main_form.ShowDialog()
