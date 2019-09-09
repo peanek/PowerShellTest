@@ -43,18 +43,36 @@ function generateForm {
     $credentialsProviderButton.Location = New-Object System.Drawing.Point(150,150)
     $main_form.Controls.Add($credentialsProviderButton)
     
+
+    function generateCredentialForm {
+        # param (
+        #     OptionalParameters
+        # )
+        $labelCredentialUser = New-Object System.Windows.Forms.Label
+        $labelCredentialUser.Size = (10,50)
+        $labelCredentialUser.Text = 'Pass login: '
+        $labelCredentialUser.Location = New-Object System.Drawing.Point(5,5)
+
+        $labelCredentialPassword = New-Object System.Windows.Forms.Label
+
+        $credentialsProviderForm.Controls.Add($labelCredentialUser)
+        
+        $credentialsProviderForm.Text = 'Credentials Provider'
+        $drawing_size.Width = 250
+        $drawing_size.Height = 100
+        $credentialsProviderForm.Size = $drawing_size
+        $credentialsProviderForm.ShowDialog()
+
+        ## ADD CONTROL OF CLOXING WINDOW BY X !!!!
+
+
+    }
+
+
     $credentialsProviderButton.Add_Click(
         {
-            $credentialsProviderForm.Text = 'Credentials Provider'
-            $drawing_size.Width = 100
-            $drawing_size.Height = 100
-            $credentialsProviderForm.Size = $drawing_size
-            $credentialsProviderForm.ShowDialog()
-            $labelCredentialUser = New-Object System.Windows.Forms.Label
-            $labelCredentialPassword = New-Object System.Windows.Forms.Label
-            
-
-
+            generateCredentialForm
+            $labelStatusBar.Text 
         }
     )
 
@@ -70,7 +88,7 @@ function generateForm {
     $labelStatusBar.Size.Height = 20
     $labelStatusBar.Size.Width = 400
     $labelStatusBar.AutoSize = $true
-    $labelStatusBar.Multiline = $false
+    
 
     $labelStatusBar.Location = New-Object System.Drawing.Point(5,235)
     # $labelStatusBar.Font = 'Consolas,8'
